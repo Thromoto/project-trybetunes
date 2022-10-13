@@ -42,6 +42,7 @@ class Album extends React.Component {
               key={ music.trackI }
               music={ music.trackName }
               preview={ music.previewUrl }
+              trackId={ music.trackId }
             />))}
           </div>
         )}
