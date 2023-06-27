@@ -1,0 +1,35 @@
+/* Estilo para o container principal do header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    color: #fff;
+  }
+  
+  /* Estilo para o nome do usuário */
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Estilo para os links de navegação */
+  .navigation {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Estilo para cada link de navegação */
+  .navigation-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  /* Estilo para o link ativo */
+  .navigation-link.active {
+    background-color: #007bff;
+  }
+  

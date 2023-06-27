@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import './login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -37,31 +38,36 @@ class Login extends React.Component {
   render() {
     const { name, btnSaveDisable, loading } = this.state;
     return (
-      <div>
-        { loading
-          ? <Loading />
-          : (
-            <div data-testid="page-login">
-              <p>Login</p>
-              <label htmlFor="name">
-                <input
-                  type="text"
-                  name="name"
-                  value={ name }
-                  onChange={ this.handleChange }
-                  data-testid="login-name-input"
-                />
-              </label>
-              <button
-                type="button"
-                data-testid="login-submit-button"
-                disabled={ btnSaveDisable }
-                onClick={ this.btnSave }
-              >
-                Entrar
-              </button>
-            </div>
-          )}
+      <div className="container">
+        <h1>TrybeTunes</h1>
+        {loading ? (
+          <div className="loading">
+            <Loading className="loading-text" />
+          </div>
+        ) : (
+          <div className="login-form" data-testid="page-login">
+            <p className="login-title">Login</p>
+            <label htmlFor="name" className="login-label">
+              <input
+                type="text"
+                name="name"
+                value={ name }
+                onChange={ this.handleChange }
+                className="login-input"
+                data-testid="login-name-input"
+              />
+            </label>
+            <button
+              type="button"
+              data-testid="login-submit-button"
+              disabled={ btnSaveDisable }
+              onClick={ this.btnSave }
+              className="login-button"
+            >
+              Entrar
+            </button>
+          </div>
+        )}
       </div>
     );
   }
