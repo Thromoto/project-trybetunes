@@ -14,7 +14,6 @@ class Header extends React.Component {
 
   async componentDidMount() {
     const usuario = await getUser();
-    // console.log(usuario);
     this.setState({ usuario });
   }
 
@@ -23,6 +22,7 @@ class Header extends React.Component {
     return (
       <>
         <header className="header" data-testid="header-component">
+          <h1 className="h1">TrybeTunes</h1>
           {usuario ? (
             <div className="user-name" data-testid="header-user-name">
               {usuario.name}

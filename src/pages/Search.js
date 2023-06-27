@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import './search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -25,9 +26,12 @@ class Search extends React.Component {
   };
 
   handleChange = ({ target: { name, value } }) => {
-    this.setState({
-      [name]: value,
-    }, () => this.enableBtn());
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => this.enableBtn(),
+    );
   };
 
   btnSave = async () => {
@@ -35,64 +39,79 @@ class Search extends React.Component {
     this.setState({
       artistName: name,
       loading: true,
-      api: false });
+      api: false,
+    });
     const result = await searchAlbumsAPI(name);
     this.setState({
       loading: false,
       artistList: result,
       name: '',
-      api: true });
+      api: true,
+    });
   };
 
   render() {
     const { name, btnSaveDisable, artistName, artistList, loading, api } = this.state;
     return (
-      <>
-        <div data-testid="page-search" />
+      <div className="page-search" data-testid="page-search">
         <Header />
-        { loading ? <Loading />
-          : (
-            <>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="input-container">
+            <div className="input-wrapper">
               <input
                 type="text"
                 name="name"
                 value={ name }
                 onChange={ this.handleChange }
+                className="search-input custom-input"
                 data-testid="search-artist-input"
               />
-              <button
-                type="button"
-                disabled={ btnSaveDisable }
-                onClick={ this.btnSave }
-                data-testid="search-artist-button"
-              >
-                Pesquisar
-              </button>
-            </>
-          )}
+            </div>
+            <button
+              type="button"
+              disabled={ btnSaveDisable }
+              onClick={ this.btnSave }
+              className="search-button"
+              data-testid="search-artist-button"
+            >
+              Pesquisar
+            </button>
+          </div>
+        )}
         <div>
           Resultado de álbuns de:
           {' '}
-          { artistName }
+          {artistName}
         </div>
         {artistList.map((album, index) => (
-          <div key={ index }>
-            <h3>{album.collectionName}</h3>
-            <h3>{album.artistName}</h3>
-            <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+          <div key={ index } className="album-result">
+            <h3 className="album-title">{album.collectionName}</h3>
+            <h3 className="album-artist">{album.artistName}</h3>
+            <img
+              src={ album.artworkUrl100 }
+              alt={ album.collectionName }
+              className="album-image"
+            />
             <br />
             <Link
               data-testid={ `link-to-album-${album.collectionId}` }
               to={ `/album/${album.collectionId}` }
+              className="album-link"
             >
               Acessar o álbum dos
               {' '}
               {artistName}
             </Link>
-          </div>))}
-        { api && artistList.length > 0 ? ''
-          : <p>Nenhum álbum foi encontrado</p> }
-      </>
+          </div>
+        ))}
+        {api && artistList.length > 0 ? (
+          ''
+        ) : (
+          <p>Nenhum álbum foi encontrado</p>
+        )}
+      </div>
     );
   }
 }

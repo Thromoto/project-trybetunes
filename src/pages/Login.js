@@ -42,7 +42,7 @@ class Login extends React.Component {
         <h1>TrybeTunes</h1>
         {loading ? (
           <div className="loading">
-            <Loading className="loading-text" />
+            <Loading />
           </div>
         ) : (
           <div className="login-form" data-testid="page-login">

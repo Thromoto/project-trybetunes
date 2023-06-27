@@ -1,35 +1,48 @@
-/* Estilo para o container principal do header */
+/* Estilo para o header principal */
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 10px;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #000, #f00);
+    padding: 20px;
+  }
+  
+  /* Estilo para o título */
+  .h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
     color: #fff;
+    margin: 0;
   }
   
   /* Estilo para o nome do usuário */
   .user-name {
     font-size: 18px;
     font-weight: bold;
+    color: #fff;
+    margin-right: auto;
+  }
+  
+  /* Estilo para a barra de navegação */
+  .navigation {
+    display: flex;
+    justify-content: center;
+    background-color: #752f2f;
+    padding: 10px;
   }
   
   /* Estilo para os links de navegação */
-  .navigation {
-    display: flex;
-    gap: 10px;
-  }
-  
-  /* Estilo para cada link de navegação */
   .navigation-link {
+    margin: 0 30px;
+    font-size: 16px;
     color: #fff;
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
   }
   
-  /* Estilo para o link ativo */
+  /* Estilo para os links de navegação quando estão ativos */
   .navigation-link.active {
-    background-color: #007bff;
+    color: #f00;
   }
   

@@ -1,0 +1,75 @@
+.page-search {
+    background: white;
+    color: rgb(0, 0, 0);
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+  }
+  
+  .search-input {
+    border-color: rgb(111, 0, 0);
+    width: 400px; /* Defina a largura desejada para o input */
+    padding: 10px;
+    border-radius: 10px; /* Adiciona bordas arredondadas */ 
+  }
+  
+  .search-button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    margin-top: 10px; /* Adiciona margem superior para separar o botão do input */
+  }
+  
+  .search-button:disabled {
+    background-color: #999999;
+    cursor: not-allowed;
+  }
+  
+  .album-result {
+    margin-top: 20px;
+  }
+  
+  .album-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .album-artist {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .album-image {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .album-link {
+    display: block;
+    color: white;
+    background-color: #ff0000;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .album-link:hover {
+    background-color: #990000;
+  }
+  
